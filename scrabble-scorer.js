@@ -51,31 +51,40 @@ initialPrompt(); //1. First call
 let vowelBonusScore = function(word){
  let score = 0;
  let vowelArr = ['a','e','o','i','u'];
-  for (let i=0;i<word.length;i++){
-      
+  for (let i=0;i<word.length;i++){ 
       if(vowelArr.includes(word[i]) ){
         score+=3;
       }else{
         score+=1;
       }
-      //if(word[i] == vowelArr[j]){
-      //  score+=3;
-      //}else{
-      //  score+=1;
-     // }
     
   }
   return score;
 }
 //console.log(vowelBonusScore("testqqq"));
-let scrabbleScore = function(word){
-  let score;
-  for(let i=0;i<word.length;i++){
-    score+=1;
-  }
-  return score*5;
-}
-
+//let scrabbleScore = function(word){
+ // let score;
+ // for(let i=0;i<word.length;i++){
+ // score+=1;
+ // }
+//  return score*5;
+//}
+scrabbleScore = function(word) {
+	word = word.toLowerCase();
+	let letterPoints = "";
+  let score = Number(0);
+  
+  //console.log(newPointStructure)
+	for (let i = 0; i < word.length; i++) {
+	  for (let pointValue in newPointStructure) {
+      //console.log(pointValue);
+		 if (pointValue.includes(word[i])) {
+      score+=Number(newPointStructure[pointValue]);
+		 }
+	  }
+	}
+	return score;
+ }
 
 
 //const scoringAlgorithms = [simpleScore,vowelBonusScore,scrabbleScore]
@@ -109,19 +118,7 @@ const scoringAlgorithmInput = Number(input.question("Enter 0, 1 or 2: "));
 //scorerPrompt(); //2. secnd call
 newPointStructure = transform(oldPointStructure); //3. third call
 
-scrabbleScore = function(word) {
-	word = word.toLowerCase();
-	let letterPoints = "";
-  let score = Number(0);
-	for (let i = 0; i < word.length; i++) {
-	  for (const pointValue in newPointStructure) {
-		 if (pointValue.includes(word[i])) {
-      score+=Number(newPointStructure[pointValue]);
-		 }
-	  }
-	}
-	return score;
- }
+
 scorerPrompt();
 //console.log("Scrabble scoring values for");
 //console.log("letter a: ", newPointStructure.a);
