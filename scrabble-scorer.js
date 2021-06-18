@@ -32,12 +32,13 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! \n\n ");
-   userword=input.question(`Enter a word to score:`);
+   console.log(`Let's play some scrabble! \n\n `);
+   let wordToScore =input.question(`Enter a word to score:`);
    //oldScrabbleScorer(userword);
+   return wordToScore;
 };
 
-initialPrompt(); //1. First call
+userword = initialPrompt(); //1. First call
 
  let simpleScore =  function(word){
    let score = word.length;
