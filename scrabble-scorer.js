@@ -11,6 +11,7 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
+//note
 let newPointStructure = {};
 
 function oldScrabbleScorer(word) {
