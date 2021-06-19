@@ -31,7 +31,7 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let userword =input.question("Let's play some scrabble! Enter a word to score:");
+   let userword =input.question("Let's play some scrabble! \n\nEnter a word to score:");
    //oldScrabbleScorer(userword);
    return userword;
 };
@@ -90,17 +90,17 @@ scrabbleScore = function(word) {
 
 const scoringAlgorithms = [{
   name : 'Simple Score',
-   description:'Each letter is worth 1 point.',
+   description:'Simple: One point per character',
    scorerFunction :simpleScore
   
 },{
   name : 'Bonus Vowels',
-   description:'Vowels are 3 pts, consonants are 1 pt.',
+   description:'Vowel Bonus: Vowels are worth 3 points',
    scorerFunction :vowelBonusScore
    },{
 
   name :'Scrabble',
-   description:'The traditional scoring algorithm.',
+   description:'Scrabble: Uses scrabble point system',
    scorerFunction :scrabbleScore
    }
 ];
@@ -115,7 +115,6 @@ for(let i=0;i<scoringAlgorithms.length;i++){
 //const scoringAlgorithmInput = input.question("Enter 0, 1 or 2: ");
 const scoringAlgorithmInput = Number(input.question("Enter 0, 1 or 2: "));
 //scorerPrompt(); //2. secnd call
-newPointStructure = transform(oldPointStructure); //3. third call
 
 
 scorerPrompt();
@@ -133,8 +132,8 @@ scorerPrompt();
 
 function scorerPrompt(){
 
-  let scorer = scoringAlgorithms[scoringAlgorithmInput];
- console.log(`Score for '${userword}' : ${scorer.scorerFunction(userword)} `);
+  //let scorer = scoringAlgorithms[scoringAlgorithmInput];
+// console.log(`Score for '${userword}' : ${scorer.scorerFunction(userword)} `);
   // if(scoringAlgorithmInput===0){
   //   console.log(`Score for '${userword}' : ${simpleScore(userword)} `);
   // }else if(scoringAlgorithmInput===1){
@@ -159,8 +158,10 @@ function transform(oldPointStructure) {
 
 
 
-function runProgram() {
-  newPointStructure;
+function runProgram(scorerPrompt) {
+newPointStructure = transform(oldPointStructure);
+  let scorer = scoringAlgorithms[scoringAlgorithmInput];
+ console.log(`Score for '${userword}' : ${scorer.scorerFunction(userword)} `);
 }
 
 // Don't write any code below this line //
