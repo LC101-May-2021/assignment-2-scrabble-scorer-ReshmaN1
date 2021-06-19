@@ -94,7 +94,7 @@ const scoringAlgorithms = [
 ];
 
 function scorerPrompt(){
-  let scorerprompt = input.question(`Which scoring algorithm would you like to use?\n 0 - Simple: One point per letter\n 1 - Vowel Bonus: Vowels are worth 3 points\n 2 - Scrabble: Traditional scrabble point system\nEnter 0, 1, or 2: `);
+  let scorerprompt = input.question(`Which scoring algorithm would you like to use?\n\n0 - Simple: One point per letter\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Traditional scrabble point system\nEnter 0, 1, or 2: `);
   console.log(`Score for '${userword}': ${scoringAlgorithms[scorerprompt].scoringFunction(userword, newPointStructure)}`); 
 }
 
